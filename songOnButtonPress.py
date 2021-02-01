@@ -147,7 +147,8 @@ def start_count(t):
             time.sleep(1)
             current_time += 1
 
-
+global songs
+songs = os.listdir('songs')
 def play_music():
     global paused
 
@@ -160,7 +161,9 @@ def play_music():
             stop_music()
             time.sleep(1)
             selected_song = playlistbox.curselection()
+            print(playlist)
             selected_song = int(selected_song[0])
+            print(selected_song)
             play_it = playlist[selected_song]
             mixer.music.load(play_it)
             mixer.music.play()
